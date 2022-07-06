@@ -1,0 +1,12 @@
+$backgroundcolor: rgb(77, 224, 180);
+$font: "";
+body {
+    background-color: $backgroundcolor;
+    font-family: $font;
+    margin: 0;
+    padding: 0;
+}
+.Container-Main
+{
+    display:flex;
+}
