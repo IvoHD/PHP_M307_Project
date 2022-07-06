@@ -2,7 +2,7 @@
 
 class EditController
 {
-	public function index()
+	public function edit()
 	{
 		require 'app/Views/edit.view.php';
 	}

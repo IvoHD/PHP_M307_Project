@@ -2,7 +2,7 @@
 
 class ListController
 {
-	public function index()
+	public function list()
 	{
 		require 'app/Views/list.view.php';
 	}

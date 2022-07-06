@@ -2,7 +2,7 @@
 
 class RegisterController
 {
-	public function index()
+	public function register()
 	{
 		require 'app/Views/register.view.php';
 	}
