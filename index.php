@@ -2,7 +2,10 @@
 require 'core/bootstrap.php';
 
 $routes = [
-	'/hallo/welt' => 'WelcomeController@index',
+	'' => 'WelcomeController@index',
+	'/edit' => 'EditController@index',
+	'/register' => 'RegisterController@index',
+	'/list' => 'ListController@index',
 ];
 
 $db = [
