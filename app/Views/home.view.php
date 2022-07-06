@@ -1,20 +1,14 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <title>Startseite</title>
     <base href="<?= ROOT_URL ?>/">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="public/css/app.css">
+    <title>Startseite</title>
 </head>
 <body>
-    <div class="container">
-    
-        <h1 class="welcome">Willkommen im 307-Framework!</h1>
 
-        <p><?= e($hello) ?></p>
-
-    </div>
-
-    <script src="public/js/app.js"></script>
 </body>
 </html>
