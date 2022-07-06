@@ -1,1 +1,2 @@
-This is a project we did in M307.
+# M307 Project
+This is a PHP Project.
