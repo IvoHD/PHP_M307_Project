@@ -1,10 +1,37 @@
 body {
+    color:white;
     background-color: rgb(77, 224, 180);
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
 }
+.Title
+{
+    text-align: center;
+    margin: 20px;
+    font-size: 70px;
+}
 .Container-Main
 {
     display:flex;
+    justify-content: center;
+    margin-top: 100px;
+}
+.Button-Register
+{
+    color:white;
+    background-color: rgb(77, 224, 180);
+    border: 10px solid white;
+    padding: 100px;
+    font-size: 50px;
+    margin: 10px;
+}
+.Button-List
+{
+    color:white;
+    background-color: rgb(77, 224, 180);
+    border: 10px solid white;
+    padding: 100px;
+    font-size: 50px;
+    margin: 10px;
 }

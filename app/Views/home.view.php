@@ -9,8 +9,10 @@
     <title>Startseite</title>
 </head>
 <body>
+    <div class="Title">Auftragsmanagement-Software</div>
     <div class="Container-Main">
-        
+        <button class="Button-Register">Neuen Eintrag erfassen</button>
+        <button class="Button-List">Einträge darstellen lassen</button>
     </div>
 </body>
 </html>
