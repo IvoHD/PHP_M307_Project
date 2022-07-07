@@ -15,43 +15,43 @@
             <tr>
                 <td>ID:</td>
                 <td> 
-                    <?= $Entry['id']?>
+                    <?= $Order['id']?>
                 </td>
             </tr>
             <tr>
                 <td>Name:</td>
                 <td>
-                    <input type="text" value ="<?= $Entry['name']?>" required>
+                    <input type="text" value ="<?= $Order['name']?>" required>
                 </td>
             </tr>
             <tr>
                 <td>Email:</td>
                 <td>
-                    <input type="text" value ="<?= $Entry['email']?>" required>
+                    <input type="text" value ="<?= $Order['email']?>" required>
                 </td>
             </tr>
             <tr>
                 <td>Telefon:</td>
                 <td>
-                    <input type="text" value ="<?= $Entry['phone']?>">
-                </td>
-            </tr>
-            <tr>
-                <td>Frucht:</td>
-                <td>
-                    <input type="text" value ="<?= $Entry['fruit']?>" required>
+                    <input type="text" value ="<?= $Order['tel']?>">
                 </td>
             </tr>
             <tr>
                 <td>Mengen-Kategorie:</td>
                 <td>
-                    <input type="text" value ="<?= $Entry['category']?>" required>
+                    <input type="text" value ="<?= $Order['amount']?>" required>
+                </td>
+            </tr>
+            <tr>
+                <td>Frucht:</td>
+                <td>
+                    <input type="text" value ="<?= $Order['fruit']?>" required>
                 </td>
             </tr>
             <tr>
                 <td>Dörr-Status:</td>
                 <td> 
-                    <input type="text" value ="<?= $Entry['isDried']?>" required>
+                    <input type="text" value ="<?= $Order['isDried']?>" required>
                 </td>
             </tr>
         </table>
