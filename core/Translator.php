@@ -3,7 +3,7 @@
     {
         public static function TelFormatter ($telString)
         {
-            $telString = trim($telString);
+            $telString = trim($telString, " ");
             $telString = trim($telString, "()");
             $telString = trim($telString, "+");
         }
