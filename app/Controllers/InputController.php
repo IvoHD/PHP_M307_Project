@@ -2,25 +2,46 @@
 
 class InputController
 {
+	//public OrderModel $Order; Doing it this way, results in object function not being not initialized...?
+
 	public function input()
 	{
-		$name = "Editieren";
-		$Order = new OrderModel();
-		if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-			$id = trim($_GET['id']);
-			if($id != "") {
-				$Order->FindOrderByID($id);
-			}
+		$id = $_GET['id'];
+		if ($id == null)
+			$this->DisplayAdd();
+		else{
+			$this->ValidateGet();
 		}
+			
+	}
+
+	public function add() {
+		echo "ok";
+	}
+
+
+	function DisplayAdd()
+	{
+		$name = "Hinzufügen";
+		$buttonAction = "/add";
+		require 'app/Views/input.view.php';
+	}
+
+	function ValidateGet() {
+		$Order = new OrderModel();
+		$id = trim($_GET['id']);
+		if($id != "") 
+			$Order->FindOrderByID($id);
 
 		if(!isset($Order->name)){
-			$Order->FindOrderByID(1);
-			require 'app/Views/input.view.php';
-
+			$this->DisplayAdd();
 			echo "<script>alert(\"Ungültige Auftrags-ID.\")</script>";
 		}
-		else
-			require 'app/Views/input.view.php';	
+		else {
+			$name = "Editieren";
+			$buttonAction = "/list";
+			require 'app/Views/input.view.php';
+		}
 	}
 }
 

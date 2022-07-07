@@ -57,9 +57,10 @@
             return $statement->fetch();
         }
 
-        public function SelectQuery(string $columns, string $tableName, string $conditon, string $amount) {
-            $statement = $db->prepare('SELECT {$columns} FROM {$tableName} WHERE {$condition} LIMIT {$amount}');
+        public function ListAll() {
+            $statement = db()->prepare('SELECT * FROM `orders` INNER JOIN `fruits` ON `orders`.`id` = `fruits`.`id`;');
             $statement->execute();
+            var_dump($statement->fetchall());
             return $statement->fetch();
         }
     }

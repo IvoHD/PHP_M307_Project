@@ -16,7 +16,7 @@ function validation ()
         alert("Bitte geben sie ihren Echten Namen ein.");
         return false;
     }
-    if(emailInput.getAttribute("value").length > 50 || !(emailInput.getAttribute("value").includes("@")))
+    if(emailInput.getAttribute("value").length > 50 || emailInput.getAttribute("value").length < 6 || !(emailInput.getAttribute("value").includes("@")))
     {
         alert("Bitte geben sie eine gültige E-Mail Addresse an.");
         return false;
