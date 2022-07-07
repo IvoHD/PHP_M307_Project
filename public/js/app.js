@@ -1,4 +1,3 @@
-const { Value } = require("sass");
 
 // Javascript
 console.info('JS geladen.');
@@ -14,12 +13,35 @@ function validation ()
 {
     if(nameInput.getAttribute("value").length > 50)
     {
-        e.preventdefault();
+        alert("Bitte geben sie ihren Echten Namen ein.");
+        return false;
     }
-    if(emailInput.getAttribute("value").length > 50)
+    if(emailInput.getAttribute("value").length > 50 || !(emailInput.getAttribute("value").includes("@")))
     {
-        e.preventdefault();
+        alert("Bitte geben sie eine gültige E-Mail Addresse an.");
+        return false;
     }
+    if(telInput.getAttribute("value").length > 25)
+    {
+        alert("Bitte geben sie eine gültige Telefonnummer an.");
+        return false;
+    }
+    if(!(categoryInput.getAttribute("value").includes("kg")))
+    {
+        alert("Bitte wählen sie einen Eintrag im Dropdown.");
+        return false;
+    }
+    if(fruitInput.getAttribute("value").length > 50)
+    {
+        alert("Bitte geben sie weniger Früchte an.");
+        return false;
+    }
+    if(isDriedInput.getAttribute("value") != true || isDriedInput.getAttribute("value") != false)
+    {
+        alert("Bitte ändern sie nicht den Code der Webseite.");
+        return false;
+    }
+
 }
 
-submit.addEventListener(click, validation());
+submitInput.addEventListener("click", validation);

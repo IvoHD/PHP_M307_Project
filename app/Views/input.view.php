@@ -65,5 +65,6 @@
         <input type="reset" value="abbrechen"><br>
     </form>
     <button >Zurück</button>
+    <script src="public/js/app.js"></script>
 </body>
 </html> 
