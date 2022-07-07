@@ -3,8 +3,7 @@ require 'core/bootstrap.php';
 
 $routes = [
 	'' => 'HomeController@home',
-	'/edit' => 'EditController@edit',
-	'/register' => 'RegisterController@register',
+	'/input' => 'InputController@input',
 	'/list' => 'ListController@list',
 ];
 
