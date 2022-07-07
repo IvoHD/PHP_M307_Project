@@ -2,7 +2,7 @@
 
 class HomeController
 {
-	public function Home()
+	public function home()
 	{
 		require 'app/Views/home.view.php';
 	}

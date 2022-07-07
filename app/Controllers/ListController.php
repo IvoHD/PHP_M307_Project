@@ -2,15 +2,9 @@
 
 class ListController
 {
-	public function List()
+	public function list()
 	{
 		require 'app/Views/list.view.php';
-		$this->GetList();
-	}
-	public static function GetList()
-	{
-		$order = new OrderModel();
-		$output = $order->ListAll();
 	}
 	
 }
