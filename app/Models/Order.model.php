@@ -1,5 +1,5 @@
 <?php
-    class OderModel {
+    class OrderModel {
         public int $ID;
         public string $name;
         public string $email;
@@ -20,9 +20,9 @@
             $this->Find($id);
         }
 
-        public function Find(int $id): ?self
+        public function FindOrderByID(int $id): ?self
         {
-            $statement = $db->prepare('SELECT * FROM Order WHERE id = {$id} LIMIT 1');
+            $statement = $db->prepare('SELECT * FROM order WHERE id = {$id} LIMIT 1');
             $statement->execute();
             $result = $statement->fetch();
     
@@ -38,14 +38,24 @@
             return null;
         }
 
+        public function GetFruitStringByID(int $id): ?string{
+            $statement = $db->prepare('SELECT * FROM fruits WHERE id = {$id} LIMIT 1');
+            $statement->execute();
+            $result = $statement->fetch();
+    
+            if ($result) {
+                return $result['name'];
+            }
+        }
+
         public function Add(string $name, string $mail, string $tel, int $category, bool $isDried, int $elapsedDays, int $fruitID) {
-            $statement = $db->prepare('INSERT INTO `orders` (`name`, `email`, `tel`, `category`,`isdried`,`elapseddays`,`fruitid`) VALUES ('Hans', 'hans@muster.ch', '0111111111', 0, true, 3, 29),');
+            $statement = $db->prepare('INSERT INTO `orders` (`name`, `email`, `tel`, `category`,`isdried`,`elapseddays`,`fruitid`) VALUES (`{$name}`, `{$mail}`, `{$tel}`, {$category}, {$isdried}, {$elapseddays}, {$fruitid})');
             $statement->execute();
             return $statement->fetch();
         }
 
-        public function SelectQuery(string $columns, string $table, string $conditon, string $amount) {
-            $statement = $db->prepare('SELECT * FROM {$table} WHERE {$condition} LIMIT {$amount}');
+        public function SelectQuery(string $columns, string $tableName, string $conditon, string $amount) {
+            $statement = $db->prepare('SELECT {$columns} FROM {$tableName} WHERE {$condition} LIMIT {$amount}');
             $statement->execute();
             return $statement->fetch();
         }
