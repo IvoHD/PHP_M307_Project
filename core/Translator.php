@@ -1,6 +1,12 @@
 <?php
     class Translator
     {
+        public static function TelFormatter ($telString)
+        {
+            $telString = trim($telString);
+            $telString = trim($telString, "()");
+            $telString = trim($telString, "+");
+        }
         public static function OnTimeChecker($category, $elDays, $isDried)
         {
             if($category === 0)
