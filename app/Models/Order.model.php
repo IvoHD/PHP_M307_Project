@@ -1,5 +1,5 @@
 <?php
-    class EditModel {
+    class OderModel {
         public int $ID;
         public string $name;
         public string $email;
@@ -44,7 +44,7 @@
             return $statement->fetch();
         }
 
-        public function SelectQuery(string $table, string $conditon, string $amount) {
+        public function SelectQuery(string $columns, string $table, string $conditon, string $amount) {
             $statement = $db->prepare('SELECT * FROM {$table} WHERE {$condition} LIMIT {$amount}');
             $statement->execute();
             return $statement->fetch();
