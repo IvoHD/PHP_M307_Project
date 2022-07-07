@@ -2,7 +2,7 @@
 
 class EditController
 {
-	public function edit()
+	public function Edit()
 	{
 		require 'app/Views/edit.view.php';
 	}

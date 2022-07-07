@@ -9,7 +9,7 @@ $routes = [
 ];
 
 $db = [
-	'name'     => 'dryfruits',
+	'name'     => 'DryFruits',
 	'username' => 'root',
 	'password' => '',
 ];
