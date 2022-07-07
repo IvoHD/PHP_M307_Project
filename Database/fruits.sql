@@ -102,16 +102,8 @@ CREATE TABLE `orders` (
   `name` varchar(50),
   `email` varchar(50),
   `tel` varchar(25),
-  `category` int(5),
-  `isdried` boolean,
-  `elapseddays` int(20),
+  `amount` int(5),
   `fruitid` int(11) NOT NULL,
   PRIMARY KEY(id),
   FOREIGN KEY(fruitid) REFERENCES fruits(id)
 );
-
-INSERT INTO `orders` (`name`, `email`, `tel`, `category`,`isdried`,`elapseddays`,`fruitid`) VALUES
-('Hans', 'hans@muster.ch', '0111111111', 0, true, 3, 29),
-('Pop', 'pop@muster.ch',   '0222222222', 1, false, 6, 9),
-('Duck', 'duck@muster.ch', '0333333333', 2, false, 15, 15),
-('Bob', 'bob@muster.ch',   '0444444444', 3, true, 17, 20);
