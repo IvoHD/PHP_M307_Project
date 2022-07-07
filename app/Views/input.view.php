@@ -21,25 +21,25 @@
             <tr>
                 <td>Name:</td>
                 <td>
-                    <input type="text" value ="<?= $Order->name?>" required>
+                    <input id="name" type="text" value ="<?= $Order->name?>" required>
                 </td>
             </tr>
             <tr>
                 <td>Email:</td>
                 <td>
-                    <input type="text" value ="<?= $Order->email?>" required>
+                    <input id="email" type="text" value ="<?= $Order->email?>" required>
                 </td>
             </tr>
             <tr>
                 <td>Telefon:</td>
                 <td>
-                    <input type="text" value ="<?= $Order->tel?>">
+                    <input id="tel" type="text" value ="<?= $Order->tel?>">
                 </td>
             </tr>
             <tr>
                 <td>Mengen-Kategorie:</td>
                 <td>
-                    <select value ="<?= $Order->category?>" name="" id="">
+                    <select id="category" value ="<?= $Order->category?>" name="" id="">
                         <option value="0" <?php echo 0 == $Order->category ? "selected=\"true\"" : ""?>>0-5kg</option>
                         <option value="1" <?php echo 1 == $Order->category ? "selected=\"true\"" : ""?>>5-10kg</option>
                         <option value="2" <?php echo 2 == $Order->category ? "selected=\"true\"" : ""?>>10-15kg</option>
@@ -50,18 +50,18 @@
             <tr>
                 <td>Frucht:</td>
                 <td>
-                    <input type="text" value =<?= $Order->GetFruitStringByID($Order->fruitID)?> required>
+                    <input id="fruit" type="text" value =<?= $Order->GetFruitStringByID($Order->fruitID)?> required>
                 </td>
             </tr>
             <tr>
             <tr> 
                 <td>Dörr-Status:</td>
                 <td> 
-                    <input type="checkbox" value="true" <?php echo $Order->isDried ? "Checked=\"checked\"ecked" : "" ?>required>
+                    <input id="isDried" type="checkbox" value="true" <?php echo $Order->isDried ? "Checked=\"checked\"ecked" : "" ?>required>
                 </td>
             </tr>
         </table>
-        <button type="submit"><?= $name?></button>
+        <button id="submit" type="submit"><?= $name?></button>
         <input type="reset" value="abbrechen"><br>
     </form>
     <button >Zurück</button>
