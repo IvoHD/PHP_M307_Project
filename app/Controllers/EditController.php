@@ -2,14 +2,9 @@
 
 class EditController
 {
-	public function edit()
+	public function Edit()
 	{
-		$name = "Editieren";
-		$Order = new OrderModel();
-		$Order->FindOrderByID(4);
-		//not finished
 		require 'app/Views/edit.view.php';
-
 	}
 	
 }

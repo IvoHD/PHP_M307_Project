@@ -9,9 +9,12 @@
     <title>Einträge anzeigen</title>
 </head>
 <body>
+    <div class="Title">Alle Einträge</div>
     <div class="Container-Main">
-        
-    <script src="public/js/app.js"></script>
+        <?php
+        //GetList();
+        ?>
     </div>
+    <script src="public/js/app.js"></script>
 </body>
 </html>
