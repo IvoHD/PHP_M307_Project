@@ -11,56 +11,64 @@
 <body>
     <h1><?=$name?></h1>
     <form action="" method="POST">
-        <table>
-            <tr>
-                <td>ID:</td>
-                <td> 
-                    <?php echo isset($Order->name) ? $Order->ID : ""?>
-                </td>
-            </tr>
-            <tr>
-                <td>Name:</td>
-                <td>
-                    <input id="name" type="text" value ="<?php echo isset($Order->name) ? $Order->name : "" ?>" required>
-                </td>
-            </tr>
-            <tr>
-                <td>Email:</td>
-                <td>
-                    <input id="email" type="text" value ="<?php echo isset($Order->email) ? $Order->email : ""?>" required>
-                </td>
-            </tr>
-            <tr>
-                <td>Telefon:</td>
-                <td>
-                    <input id="tel" type="text" value ="<?php echo isset($Order->name) ? $Order->tel : ""?>">
-                </td>
-            </tr>
-            <tr>
-                <td>Mengen-Kategorie:</td>
-                <td>
-                    <select id="category" name="category">
-                        <option value="0" <?php echo isset($Order->category) && $Order->category == 0 ? "selected=\"true\"" : ""?>>0-5kg</option>
-                        <option value="1" <?php echo isset($Order->category) && $Order->category == 1 ? "selected=\"true\"" : ""?>>5-10kg</option>
-                        <option value="2" <?php echo isset($Order->category) && $Order->category == 2 ? "selected=\"true\"" : ""?>>10-15kg</option>
-                        <option value="3" <?php echo isset($Order->category) && $Order->category == 3 ? "selected=\"true\"" : ""?>>15-20kg</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td>Frucht:</td>
-                <td>
-                    <input id="fruit" type="text" value ="<?php echo isset($Order->category) ? $Order->GetFruitStringByID($Order->fruitID) : ""?>" required>
-                </td>
-            </tr>
-            <tr>
-            <tr> 
-                <td>Dörr-Status:</td>
-                <td> 
-                    <input id="" type="checkbox" value="true" <?php if(isset($Order->isDried)) echo $Order->isDried ? "Checked=\"checked\"" : ""  ?>>
-                </td>
-            </tr>
-        </table>
+        <fieldset>
+            <legend>Zum Kunden</legend>
+            <table>
+                <tr>
+                    <td>ID:</td>
+                    <td> 
+                        <?php echo isset($Order->name) ? $Order->ID : ""?>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Name:</td>
+                    <td>
+                        <input id="name" type="text" value ="<?php echo isset($Order->name) ? $Order->name : "" ?>" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td>
+                        <input id="email" type="text" value ="<?php echo isset($Order->email) ? $Order->email : ""?>" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Telefon:</td>
+                    <td>
+                        <input id="tel" type="text" value ="<?php echo isset($Order->name) ? $Order->tel : ""?>">
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+        <fieldset>
+            <legend>Zum Auftrag</legend>
+            <table>
+                <tr>
+                    <td>Mengen-Kategorie:</td>
+                    <td>
+                        <select id="category" name="category">
+                            <option value="0" <?php echo isset($Order->category) && $Order->category == 0 ? "selected=\"true\"" : ""?>>0-5kg</option>
+                            <option value="1" <?php echo isset($Order->category) && $Order->category == 1 ? "selected=\"true\"" : ""?>>5-10kg</option>
+                            <option value="2" <?php echo isset($Order->category) && $Order->category == 2 ? "selected=\"true\"" : ""?>>10-15kg</option>
+                            <option value="3" <?php echo isset($Order->category) && $Order->category == 3 ? "selected=\"true\"" : ""?>>15-20kg</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Frucht:</td>
+                    <td>
+                        <input id="fruit" type="text" value ="<?php echo isset($Order->category) ? $Order->GetFruitStringByID($Order->fruitID) : ""?>" required>
+                    </td>
+                </tr>
+                <tr>
+                <tr> 
+                    <td>Dörr-Status:</td>
+                    <td> 
+                        <input id="" type="checkbox" value="true" <?php if(isset($Order->isDried)) echo $Order->isDried ? "Checked=\"checked\"" : ""  ?>>
+                    </td>
+                </tr>
+            </table>
+            </fieldset>
         <a href="<?= $buttonAction ?>"><button id="submit" type="submit"><?= $name?></button></a>
         <input type="reset" value="Zurücksetzten"><br>
     </form>
