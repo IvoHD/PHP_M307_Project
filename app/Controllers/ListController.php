@@ -2,15 +2,17 @@
 
 class ListController
 {
+	public $OrderArray;
 	public function List()
 	{
+		$OrderArray= $this->GetList();
 		require 'app/Views/list.view.php';
-		$this->GetList();
 	}
+
 	public static function GetList()
 	{
 		$order = new OrderModel();
-		$output = $order->ListAll();
+		return $order->ListAll();
 	}
 	
 }
