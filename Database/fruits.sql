@@ -1,4 +1,6 @@
--- phpMyAdmin SQL Dump
+CREATE DATABASE DryFruits;
+USE DryFruits;
+-- phpMyAdmin SQL Dup
 -- version 4.5.1
 -- http://www.phpmyadmin.net
 --
@@ -94,3 +96,14 @@ ALTER TABLE `fruits`
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+CREATE TABLE `orders` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50),
+  `email` varchar(50),
+  `tel` varchar(25),
+  `amount` int(5),
+  `fruitid` int(11) NOT NULL,
+  PRIMARY KEY(id),
+  FOREIGN KEY(fruitid) REFERENCES fruits(id)
+);

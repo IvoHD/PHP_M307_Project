@@ -11,6 +11,7 @@
 <body>
     <div class="Container-Main">
         
+    <script src="public/js/app.js"></script>
     </div>
 </body>
 </html>

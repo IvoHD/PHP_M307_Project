@@ -35,3 +35,11 @@ body {
     font-size: 50px;
     margin: 10px;
 }
+.Button-Register:hover
+{
+    cursor: pointer;
+}
+.Button-List:hover
+{
+    cursor: pointer;
+}

@@ -4,7 +4,6 @@ class HomeController
 {
 	public function home()
 	{
-		$hello = 'Viel Spass beim Programmieren!';
 		
 		require 'app/Views/home.view.php';
 	}
@@ -17,7 +16,7 @@ class HomeController
 		$statement->execute();
 		
 		// Umleiten auf die Startseite
-		header('Location: ' . ROOT_URL . '/hallo/welt');
+		header('Location: ' . ROOT_URL . '');
 	}
 	
 }

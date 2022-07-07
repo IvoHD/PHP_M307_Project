@@ -11,8 +11,9 @@
 <body>
     <div class="Title">Auftragsmanagement-Software</div>
     <div class="Container-Main">
-        <button class="Button-Register">Neuen Eintrag erfassen</button>
-        <button class="Button-List">Einträge darstellen lassen</button>
+        <a href="/register"><button class="Button-Register">Neuen Eintrag erfassen</button></a>
+        <a href="/list"><button class="Button-List">Einträge darstellen lassen</button></a>
     </div>
+    <script src="public/js/app.js"></script>
 </body>
 </html>
