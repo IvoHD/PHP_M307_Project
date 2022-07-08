@@ -77,8 +77,13 @@
             return $statement->fetch();
         }
 
-        public function ListAll() {
+        public function ListAllOrders() {
             $statement = $this->db->prepare('SELECT * FROM `orders`');
+            $statement->execute();
+            return $statement->fetchall();
+        }
+        public function ListAllFruits() {
+            $statement = $this->db->prepare('SELECT * FROM `fruits`');
             $statement->execute();
             return $statement->fetchall();
         }
