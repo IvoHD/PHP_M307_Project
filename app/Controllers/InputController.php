@@ -2,11 +2,11 @@
 
 class InputController
 {
-	//public orderModel $order; Doing it this way, results in object function not being not initialized...?
+	public OrderModel $order;// Doing it this way, results in object function not being not initialized...?
 
 	public function input()
 	{
-		$this->LoadFruitDropDown();
+		$order = new OrderModel();
 		$id = $_GET['id'];
 		if ($id == null)
 			$this->DisplayAdd();
@@ -26,11 +26,11 @@ class InputController
 
 		$order = new OrderModel();
 		$order->add($name, $email, $tel, $category, $isDried, $fruit);
+		header("Location: \ ");
 	}
 
 	function edit(){
 		$order = new OrderModel();
-
 		$id = $_GET['id'];
 		$name = $_POST['name'];
 		$email= $_POST['email'];
@@ -39,17 +39,21 @@ class InputController
 		$fruit = $_POST['fruit'];
 		$isDried = $_POST['isDried'] ?  : false;
 
-		$order = new OrderModel();
-		$order->edit($id, $name, $email, $tel, $category, $isDried, $fruit);
+		$order->Edit($id, $name, $email, $tel, $category, $isDried, $fruit);
+		header("Location: \list");
 	}
 
 	function DisplayAdd()
 	{
+		$fruitDropdown = $this->LoadFruitDropDown();
 		$name = "Hinzufügen";
 		$buttonAction = "add";
 		$backButtonAction = "/";
+		$reset = "<input type=\"reset\" value=\"Zurücksetzten\"><br>";
 		require 'app/Views/input.view.php';
 	}
+
+	
 	
 	function ValidateGet() {
 		$order = new OrderModel();
@@ -63,6 +67,7 @@ class InputController
 		}
 		else {
 			$name = "Editieren";
+			$fruitDropdown = $this->LoadFruitDropDown();
 			$buttonAction = "edit?id={$id}";
 			$backButtonAction = "list";
 			require 'app/Views/input.view.php';
@@ -70,7 +75,19 @@ class InputController
 	}
 
 	function LoadFruitDropDown(){
-		echo "";
+		$order = new OrderModel();
+		$allFruits = $order->ListAllFruits();
+		$result = "";
+		$id = $_GET['id'];
+
+		foreach($allFruits as $fruit){
+			$selected = "";
+			if($fruit['id'] == $id)
+				$selected = "selected=\"true\"";
+			$result = $result . "\n" . "<option value = {$fruit['id']} {$selected}>{$fruit['name']}</option>";
+		}
+
+		return $result;
 	}
 
 }

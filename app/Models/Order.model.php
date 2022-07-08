@@ -77,6 +77,20 @@
             return $statement->fetch();
         }
 
+        public function IncrementElapsedDays() {
+            $allOrders = $this->ListAllOrders();
+            foreach($allOrders as $order){
+                $elapsedDays = $order['elapseddays'] + 1;
+                var_dump($elapsedDays);
+                $id = $order['id'];
+                var_dump($id);
+                $statement = $this->db->prepare('UPDATE orders SET elapseddays = :elapseddays WHERE id = :id');
+                $statement->bindParam(':elapseddays', $elapsedDays);
+                $statement->bindParam(':id', $id);
+                $statement->execute();
+            }
+        }
+
         public function ListAllOrders() {
             $statement = $this->db->prepare('SELECT * FROM `orders` WHERE isDried = false');
             $statement->execute();

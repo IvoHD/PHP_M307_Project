@@ -55,14 +55,14 @@
                             <option value="1" <?php echo isset($order->category) && $order->category == 1 ? "selected=\"true\"" : ""?>>5-10kg</option>
                             <option value="2" <?php echo isset($order->category) && $order->category == 2 ? "selected=\"true\"" : ""?>>10-15kg</option>
                             <option value="3" <?php echo isset($order->category) && $order->category == 3 ? "selected=\"true\"" : ""?>>15-20kg</option>
-                        </select>
                     </td>
                 </tr>
                 <tr>
                     <td>Frucht:</td>
                     <td>
-                        <!-- <select id="fruit" name="fruit"></select> -->
-                        <input id="fruit" name="fruit" type="text" value ="<?php echo isset($order->category) ? $order->GetFruitStringByID($order->fruitID) : ""?>" required>
+                        <select id="fruit" name="fruit">
+                            <?= $fruitDropdown ?>
+                        </select>
                     </td>
                 </tr>
                 <tr>

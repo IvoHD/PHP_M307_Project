@@ -7,6 +7,7 @@ $routes = [
 	'/list' => 'ListController@list',
 	'/add' => 'InputController@add',
 	'/edit' => 'InputController@edit',
+	'/incrementElapsedDays' => 'HomeController@incrementElapsedDays',
 ];
 
 $db = [
