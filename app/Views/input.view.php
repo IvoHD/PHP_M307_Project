@@ -10,36 +10,36 @@
 </head>
 <body>
     <h1><?=$name?></h1>
-    <form action="" method="POST">
+    <form action="$buttonAction" method="POST">
         <fieldset>
             <legend>Zum Kunden</legend>
             <table>
-                <tr>
                 <?php if(isset($order->name)) 
                 echo "
-                    <td>ID:</td>
-                    <td> 
-                        {$order->id}
-                    </td>
+                    <tr>
+                        <td>ID:</td>
+                        <td> 
+                            {$order->id}
+                        </td>
+                    </tr>
                     ";
                     ?>
-                </tr>
                 <tr>
                     <td>Name:</td>
                     <td>
-                        <input id="name" type="text" value ="<?php echo isset($order->name) ? $order->name : "" ?>" required>
+                        <input id="name" name="name" type="text" value ="<?php echo isset($order->name) ? $order->name : "" ?>" required>
                     </td>
                 </tr>
                 <tr>
                     <td>Email:</td>
                     <td>
-                        <input id="email" type="text" value ="<?php echo isset($order->email) ? $order->email : ""?>" required>
+                        <input id="email" name="email" type="text" value ="<?php echo isset($order->email) ? $order->email : ""?>" required>
                     </td>
                 </tr>
                 <tr>
                     <td>Telefon:</td>
                     <td>
-                        <input id="tel" type="text" value ="<?php echo isset($order->name) ? $order->tel : ""?>">
+                        <input id="tel" name="tel" type="text" value ="<?php echo isset($order->name) ? $order->tel : ""?>">
                     </td>
                 </tr>
             </table>
@@ -61,19 +61,19 @@
                 <tr>
                     <td>Frucht:</td>
                     <td>
-                        <input id="fruit" type="text" value ="<?php echo isset($order->category) ? $order->GetFruitStringByID($order->fruitID) : ""?>" required>
+                        <input id="fruit" name="fruit" type="text" value ="<?php echo isset($order->category) ? $order->GetFruitStringByID($order->fruitID) : ""?>" required>
                     </td>
                 </tr>
                 <tr>
                 <tr> 
                     <td>Dörr-Status:</td>
                     <td> 
-                        <input id="" type="checkbox" value="true" <?php if(isset($order->isDried)) echo $order->isDried ? "Checked=\"checked\"" : ""  ?>>
+                        <input id="isDried" name="isDried" type="checkbox" value="true" <?php if(isset($order->isDried)) echo $order->isDried ? "Checked=\"checked\"" : ""  ?>>
                     </td>
                 </tr>
             </table>
             </fieldset>
-        <a href="<?= $buttonAction ?>"><button id="submit" type="submit"><?= $name?></button></a>
+        <button id="submit" type="submit"><?= $name?></button>
         <input type="reset" value="Zurücksetzten"><br>
     </form>
     <a href="<?=$backButtonAction?>">
