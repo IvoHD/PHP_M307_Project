@@ -64,7 +64,7 @@
         }
 
         public function ListAll() {
-            $statement = db()->prepare('SELECT * FROM `orders` INNER JOIN `fruits` ON `orders`.`id` = `fruits`.`id`;');
+            $statement = db()->prepare('SELECT * FROM orders');
             $statement->execute();
             return $statement->fetchall();
         }

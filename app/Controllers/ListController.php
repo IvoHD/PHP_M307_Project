@@ -7,6 +7,7 @@ class ListController
 	{
 		$OrderArray= $this->GetList();
 		require 'app/Views/list.view.php';
+		var_dump($OrderArray);
 		
 		echo " 
 		<table>
