@@ -53,7 +53,15 @@ class InputController
 		require 'app/Views/input.view.php';
 	}
 
-	
+	function DisplayEdit($id){
+		$order = new OrderModel();
+		$order->FindorderByID($id);
+		$name = "Editieren";
+		$fruitDropdown = $this->LoadFruitDropDown();
+		$buttonAction = "edit?id={$id}";
+		$backButtonAction = "list";
+		require 'app/Views/input.view.php';
+	}
 	
 	function ValidateGet() {
 		$order = new OrderModel();
@@ -65,13 +73,8 @@ class InputController
 			$this->DisplayAdd();
 			echo "<script>alert(\"Ungültige Auftrags-ID.\")</script>";
 		}
-		else {
-			$name = "Editieren";
-			$fruitDropdown = $this->LoadFruitDropDown();
-			$buttonAction = "edit?id={$id}";
-			$backButtonAction = "list";
-			require 'app/Views/input.view.php';
-		}
+		else 
+			$this->DisplayEdit($id);
 	}
 
 	function LoadFruitDropDown(){
