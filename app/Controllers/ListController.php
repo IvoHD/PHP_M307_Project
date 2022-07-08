@@ -24,14 +24,15 @@ class ListController
 			";
     
 		foreach($orderarray as $element){
-		$icon = Translator::OnTimeChecker($element['category'], $element ['elapseddays'], $element ['isdried']);	
+		$icon = Translator::OnTimeChecker($element['category'], $element ['elapseddays'], $element ['isdried']);
+		$category = Translator::CategoryTranslator($element['category']);
 			echo "
 				<tr>
 					<th>{$element['id']}</th>
 					<th>{$element['name']}</th>
 					<th>{$element['email']}</th>
 					<th>{$element['tel']}</th>
-					<th>{$element['category']}</th>
+					<th>{$category}</th>
 					<th>{$element['elapseddays']}</th>
 					<th>{$order->GetFruitStringByID($element['fruitid'])}</th>
 					<th>{$icon}</th>

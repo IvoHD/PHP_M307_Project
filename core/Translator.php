@@ -58,6 +58,7 @@
                 $returnVar = '15-20kg';
             else
                 $returnVar = 'error:translator.category/exception';
+            return $returnVar;
         }
     }
     
