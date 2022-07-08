@@ -6,16 +6,16 @@ class InputController
 
 	public function input()
 	{
-		LoadFruitDropDown();
+		$this->LoadFruitDropDown();
 		$id = $_GET['id'];
 		if ($id == null)
 			$this->DisplayAdd();
-		else{
+			else{
 			$this->ValidateGet();
 		}
-			
+		
 	}
-
+	
 	public function add() {
 		$name = $_POST['name'];
 		$email= $_POST['email'];
@@ -28,6 +28,20 @@ class InputController
 		$order->add($name, $email, $tel, $category, $isDried, $fruit);
 	}
 
+	function edit(){
+		$order = new OrderModel();
+
+		$id = $_GET['id'];
+		$name = $_POST['name'];
+		$email= $_POST['email'];
+		$tel = $_POST['tel'];
+		$category = $_POST['category'];
+		$fruit = $_POST['fruit'];
+		$isDried = $_POST['isDried'] ?  : false;
+
+		$order = new OrderModel();
+		$order->edit($id, $name, $email, $tel, $category, $isDried, $fruit);
+	}
 
 	function DisplayAdd()
 	{
@@ -36,7 +50,7 @@ class InputController
 		$backButtonAction = "/";
 		require 'app/Views/input.view.php';
 	}
-
+	
 	function ValidateGet() {
 		$order = new OrderModel();
 		$id = trim($_GET['id']);
@@ -49,12 +63,15 @@ class InputController
 		}
 		else {
 			$name = "Editieren";
-			$buttonAction = "list";
+			$buttonAction = "edit?id={$id}";
 			$backButtonAction = "list";
 			require 'app/Views/input.view.php';
 		}
 	}
 
-	function FruitDropDown();
+	function LoadFruitDropDown(){
+		echo "";
+	}
+
 }
 

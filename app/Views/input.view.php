@@ -19,7 +19,7 @@
                     <tr>
                         <td>ID:</td>
                         <td> 
-                            {$order->id}
+                            {$order->ID}
                         </td>
                     </tr>
                     ";
@@ -61,8 +61,8 @@
                 <tr>
                     <td>Frucht:</td>
                     <td>
-                        <select id="fruit" name="fruit"></select>
-                            <input id="fruit" name="fruit" type="text" value ="<?php echo isset($order->category) ? $order->GetFruitStringByID($order->fruitID) : ""?>" required>
+                        <!-- <select id="fruit" name="fruit"></select> -->
+                        <input id="fruit" name="fruit" type="text" value ="<?php echo isset($order->category) ? $order->GetFruitStringByID($order->fruitID) : ""?>" required>
                     </td>
                 </tr>
                 <tr>

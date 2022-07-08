@@ -5,7 +5,8 @@ $routes = [
 	'' => 'HomeController@home',
 	'/input' => 'InputController@input',
 	'/list' => 'ListController@list',
-	'/add' => 'InputController@add'
+	'/add' => 'InputController@add',
+	'/edit' => 'InputController@edit',
 ];
 
 $db = [
