@@ -64,8 +64,8 @@
             return $statement->fetch();
         }
 
-        public function Edit (int $id, string $name, string $mail, string $tel, int $category, bool $isDried, int $elapsedDays, int $fruitID) {
-            $statement = $this->db->prepare('UPDATE orders SET name = :name, email = :email, tel = :tel, category = :category, isdried = :isdried, elapseddays = :elapseddays, fruitid = :fruitid WHERE id = :id');
+        public function Edit (int $id, string $name, string $mail, string $tel, int $category, bool $isDried, int $fruitID) {
+            $statement = $this->db->prepare('UPDATE orders SET name = :name, email = :email, tel = :tel, category = :category, isdried = :isdried, fruitid = :fruitid WHERE id = :id');
             $statement->bindParam(':name', $name);
             $statement->bindParam(':email', $email);
             $statement->bindParam(':tel', $tel);
