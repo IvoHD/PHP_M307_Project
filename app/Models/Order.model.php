@@ -65,7 +65,14 @@
         }
 
         public function Edit (int $id, string $name, string $mail, string $tel, int $category, bool $isDried, int $elapsedDays, int $fruitID) {
-            $statement = $this->db->prepare('UPDATE `orders` SET `name` = `$name`, `email` = `$email`, `tel` = `$tel`, `category` = `$category`,`isdried` = `$isdried`,`elapseddays` = `$elapseddays`,`fruitid` = `$fruitid` WHERE `id` = $id');
+            $statement = $this->db->prepare('UPDATE orders SET name = :name, email = :email, tel = :tel, category = :category, isdried = :isdried, elapseddays = :elapseddays, fruitid = :fruitid WHERE id = :id');
+            $statement->bindParam(':name', $name);
+            $statement->bindParam(':email', $email);
+            $statement->bindParam(':tel', $tel);
+            $statement->bindParam(':category', $category);
+            $statement->bindParam(':isdried', $isDried);
+            $statement->bindParam(':fruitid', $fruitID);
+            $statement->bindParam('id', $id);
             $statement->execute();
             return $statement->fetch();
         }
