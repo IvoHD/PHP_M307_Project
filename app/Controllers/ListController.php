@@ -2,12 +2,11 @@
 
 class ListController
 {
-	public $OrderArray;
 	public function List()
 	{
-		$OrderArray= $this->GetList();
+		$OrderArray = $this->GetList();
+		$Order = new OrderModel();
 		require 'app/Views/list.view.php';
-		var_dump($OrderArray);
 		
 		echo " 
 		<table>
@@ -23,18 +22,18 @@ class ListController
 			</tr>
 			";
     
-		foreach($OrderArray as $Order)
+		foreach($OrderArray as $Element)
 			echo "
 				<tr>
-					<th>{$Order['id']}</th>
-					<th>{$Order['name']}</th>
-					<th>{$Order['email']}</th>
-					<th>{$Order['tel']}</th>
-					<th>{$Order['category']}</th>
-					<th>{$Order['isdried']}</th>
-					<th>{$Order['elapseddays']}</th>
-					<th>{$Order['fruitid']}</th>
-					<th><a href=\"/input?id={$Order['id']}\"><button class=\"\">Editieren</button></a></th>
+					<th>{$Element['id']}</th>
+					<th>{$Element['name']}</th>
+					<th>{$Element['email']}</th>
+					<th>{$Element['tel']}</th>
+					<th>{$Element['category']}</th>
+					<th>{$Element['isdried']}</th>
+					<th>{$Element['elapseddays']}</th>
+					<th>{$Order->GetFruitStringByID($Element['fruitid'])}</th>
+					<th><a href=\"/input?id={$Element['id']}\"><button class=\"\">Editieren</button></a></th>
 				</tr>
 			";
 		echo "</table>";

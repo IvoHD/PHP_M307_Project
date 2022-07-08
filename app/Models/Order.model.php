@@ -51,20 +51,27 @@
             }
         }
 
-        public function Add(string $name, string $mail, string $tel, int $category, bool $isDried, int $elapsedDays, int $fruitID) {
-            $statement = $db->prepare('INSERT INTO `orders` (`name`, `email`, `tel`, `category`,`isdried`,`elapseddays`,`fruitid`) VALUES (`{$name}`, `{$mail}`, `{$tel}`, {$category}, {$isdried}, {$elapseddays}, {$fruitid})');
+        public function Add(string $name, string $email, string $tel, int $category, bool $isDried, string $fruitID) {
+            $statement = $this->db->prepare('INSERT INTO orders (name, email, tel, category, isdried, elapseddays, fruitid) 
+                                            VALUES (:name, :email, :tel, :category, :isdried, 0, :fruitid)');
+            $statement->bindParam(':name', $name);
+            $statement->bindParam(':email', $email);
+            $statement->bindParam(':tel', $tel);
+            $statement->bindParam(':category', $category);
+            $statement->bindParam(':isdried', $isDried);
+            $statement->bindParam(':fruitid', $fruitID);
             $statement->execute();
             return $statement->fetch();
         }
 
         public function Edit (int $id, string $name, string $mail, string $tel, int $category, bool $isDried, int $elapsedDays, int $fruitID) {
-            $statement = $db->prepare('UPDATE `orders` SET `name` = `$name`, `email` = `$email`, `tel` = `$tel`, `category` = `$category`,`isdried` = `$isdried`,`elapseddays` = `$elapseddays`,`fruitid` = `$fruitid` WHERE `id` = $id');
+            $statement = $this->db->prepare('UPDATE `orders` SET `name` = `$name`, `email` = `$email`, `tel` = `$tel`, `category` = `$category`,`isdried` = `$isdried`,`elapseddays` = `$elapseddays`,`fruitid` = `$fruitid` WHERE `id` = $id');
             $statement->execute();
             return $statement->fetch();
         }
 
         public function ListAll() {
-            $statement = db()->prepare('SELECT * FROM orders');
+            $statement = $this->db->prepare('SELECT * FROM `orders` INNER JOIN `fruits` ON `orders`.`id` = `fruits`.`id`;');
             $statement->execute();
             return $statement->fetchall();
         }

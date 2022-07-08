@@ -10,7 +10,7 @@
 </head>
 <body>
     <h1><?=$name?></h1>
-    <form action="$buttonAction" method="POST">
+    <form action="<?=$buttonAction?>" method="POST">
         <fieldset>
             <legend>Zum Kunden</legend>
             <table>
@@ -61,7 +61,8 @@
                 <tr>
                     <td>Frucht:</td>
                     <td>
-                        <input id="fruit" name="fruit" type="text" value ="<?php echo isset($order->category) ? $order->GetFruitStringByID($order->fruitID) : ""?>" required>
+                        <select id="fruit" name="fruit"></select>
+                            <input id="fruit" name="fruit" type="text" value ="<?php echo isset($order->category) ? $order->GetFruitStringByID($order->fruitID) : ""?>" required>
                     </td>
                 </tr>
                 <tr>

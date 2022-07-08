@@ -2,10 +2,11 @@
 
 class InputController
 {
-	//public OrderModel $Order; Doing it this way, results in object function not being not initialized...?
+	//public orderModel $order; Doing it this way, results in object function not being not initialized...?
 
 	public function input()
 	{
+		LoadFruitDropDown();
 		$id = $_GET['id'];
 		if ($id == null)
 			$this->DisplayAdd();
@@ -16,34 +17,44 @@ class InputController
 	}
 
 	public function add() {
-		echo "ok";
+		$name = $_POST['name'];
+		$email= $_POST['email'];
+		$tel = $_POST['tel'];
+		$category = $_POST['category'];
+		$fruit = $_POST['fruit'];
+		$isDried = $_POST['isDried'] ?  : false;
+
+		$order = new OrderModel();
+		$order->add($name, $email, $tel, $category, $isDried, $fruit);
 	}
 
 
 	function DisplayAdd()
 	{
 		$name = "Hinzufügen";
-		$buttonAction = "/add";
+		$buttonAction = "add";
 		$backButtonAction = "/";
 		require 'app/Views/input.view.php';
 	}
 
 	function ValidateGet() {
-		$Order = new OrderModel();
+		$order = new OrderModel();
 		$id = trim($_GET['id']);
 		if($id != "") 
-			$Order->FindOrderByID($id);
+			$order->FindorderByID($id);
 
-		if(!isset($Order->name)){
+		if(!isset($order->name)){
 			$this->DisplayAdd();
 			echo "<script>alert(\"Ungültige Auftrags-ID.\")</script>";
 		}
 		else {
 			$name = "Editieren";
-			$buttonAction = "/list";
-			$backButtonAction = "/list";
+			$buttonAction = "list";
+			$backButtonAction = "list";
 			require 'app/Views/input.view.php';
 		}
 	}
+
+	function FruitDropDown();
 }
 
