@@ -78,7 +78,7 @@
         }
 
         public function ListAllOrders() {
-            $statement = $this->db->prepare('SELECT * FROM `orders`');
+            $statement = $this->db->prepare('SELECT * FROM `orders` WHERE isDried = false');
             $statement->execute();
             return $statement->fetchall();
         }

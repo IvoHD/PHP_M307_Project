@@ -1,7 +1,7 @@
 <?php
     class Translator
     {
-        public static function DryFormatter ($dryState)
+/*        public static function DryFormatter ($dryState)
         {
             if($dryState == 0)
             {
@@ -12,6 +12,7 @@
                 return "gedörrt";
             }
         }
+*/
         public static function TelFormatter ($telString)
         {
             $telString = trim($telString, " ");
@@ -20,18 +21,27 @@
         }
         public static function OnTimeChecker($category, $elDays, $isDried)
         {
+            $returnVar = "🍎";
             if($category === 0)
                 if($elDays >= 5 && !$isDried)
                     $returnVar = '🥔';
+                else
+                    $returnVar = '🍎';
             else if($category === 1)
                 if($elDays >= 8 && !$isDried)
                     $returnVar = '🥔';
+                else
+                $returnVar = '🍎';
             else if($category === 2)
                 if($elDays >= 12 && !$isDried)
                     $returnVar = '🥔';
+                else
+                $returnVar = '🍎';
             else if($category === 3)
                 if($elDays >= 18 && !$isDried)
                     $returnVar = '🥔';
+                else
+                $returnVar = '🍎';
             else
                 $returnVar = '🍎';
             return($returnVar);

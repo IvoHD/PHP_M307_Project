@@ -4,9 +4,10 @@ class ListController
 {
 	public function List()
 	{
-		$OrderArray = $this->GetList();
-		$Order = new OrderModel();
+		$orderarray = $this->GetList();
+		$order = new OrderModel();
 		require 'app/Views/list.view.php';
+		require 'core/Translator.php';
 		
 		echo " 
 		<table>
@@ -16,33 +17,35 @@ class ListController
 				<th>Email</th>
 				<th>TelefonNr.</th>
 				<th>Kategorie</th>
-				<th>Dörrungsstatus</th>
 				<th>Tage vergangen</th>
 				<th>Frucht</th>
+				<th></th>
 			</tr>
 			";
     
-		foreach($OrderArray as $Element)
+		foreach($orderarray as $element){
+		$icon = Translator::OnTimeChecker($element['category'], $element ['elapseddays'], $element ['isdried']);	
 			echo "
 				<tr>
-					<th>{$Element['id']}</th>
-					<th>{$Element['name']}</th>
-					<th>{$Element['email']}</th>
-					<th>{$Element['tel']}</th>
-					<th>{$Element['category']}</th>
-					<th>{$Element['isdried']}</th>
-					<th>{$Element['elapseddays']}</th>
-					<th>{$Order->GetFruitStringByID($Element['fruitid'])}</th>
-					<th><a href=\"/input?id={$Element['id']}\"><button class=\"\">Editieren</button></a></th>
+					<th>{$element['id']}</th>
+					<th>{$element['name']}</th>
+					<th>{$element['email']}</th>
+					<th>{$element['tel']}</th>
+					<th>{$element['category']}</th>
+					<th>{$element['elapseddays']}</th>
+					<th>{$order->GetFruitStringByID($element['fruitid'])}</th>
+					<th>{$icon}</th>
+					<th><a href=\"/input?id={$element['id']}\"><button class=\"\">Editieren</button></a></th>
 				</tr>
 			";
+		}
 		echo "</table>";
 	}
 
 	public static function GetList()
 	{
 		$order = new OrderModel();
-		return $order->ListAll();
+		return $order->ListAllOrders();
 	}
 	
 }
