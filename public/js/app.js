@@ -1,24 +1,24 @@
 
 // Javascript
 console.info('JS geladen.');
-var nameInput = document.getElementById("name");
-var emailInput = document.getElementById("email");
-var telInput = document.getElementById("tel");
-var categoryInput = document.getElementById("category");
-var fruitInput = document.getElementById("fruit");
-var isDriedInput = document.getElementById("isDried");
-var submitInput = document.getElementById("submit");
 
 function validation ()
 {
+    var nameInput = document.getElementById("name");
+    var emailInput = document.getElementById("email");
+    var telInput = document.getElementById("tel");
+    var categoryInput = document.getElementById("category");
+    var fruitInput = document.getElementById("fruit");
+    var isDriedInput = document.getElementById("isDried");
+    var submitInput = document.getElementById("submit");
     if(nameInput.getAttribute("value").length > 50)
     {
         alert("Bitte geben sie ihren Echten Namen ein.");
         return false;
     }
-    if(emailInput.getAttribute("value").length > 50 || emailInput.getAttribute("value").length < 6 || !(emailInput.getAttribute("value").includes("@")))
+    if(emailInput.getAttribute("value").length > 50 || emailInput.getAttribute("value").length < 5 || !(emailInput.getAttribute("value").includes("@")))
     {
-        alert("Bitte geben sie eine gültige E-Mail Addresse an.");
+        alert("Bitte geben sie eine gültige E-Mail Addresse an." + emailInput.getAttribute("value"));
         return false;
     }
     if(telInput.getAttribute("value").length > 25)

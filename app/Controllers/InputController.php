@@ -24,6 +24,7 @@ class InputController
 	{
 		$name = "Hinzufügen";
 		$buttonAction = "/add";
+		$backButtonAction = "/";
 		require 'app/Views/input.view.php';
 	}
 
@@ -40,6 +41,7 @@ class InputController
 		else {
 			$name = "Editieren";
 			$buttonAction = "/list";
+			$backButtonAction = "/list";
 			require 'app/Views/input.view.php';
 		}
 	}

@@ -15,27 +15,31 @@
             <legend>Zum Kunden</legend>
             <table>
                 <tr>
+                <?php if(isset($order->name)) 
+                echo "
                     <td>ID:</td>
                     <td> 
-                        <?php echo isset($Order->name) ? $Order->ID : ""?>
+                        {$order->id}
                     </td>
+                    ";
+                    ?>
                 </tr>
                 <tr>
                     <td>Name:</td>
                     <td>
-                        <input id="name" type="text" value ="<?php echo isset($Order->name) ? $Order->name : "" ?>" required>
+                        <input id="name" type="text" value ="<?php echo isset($order->name) ? $order->name : "" ?>" required>
                     </td>
                 </tr>
                 <tr>
                     <td>Email:</td>
                     <td>
-                        <input id="email" type="text" value ="<?php echo isset($Order->email) ? $Order->email : ""?>" required>
+                        <input id="email" type="text" value ="<?php echo isset($order->email) ? $order->email : ""?>" required>
                     </td>
                 </tr>
                 <tr>
                     <td>Telefon:</td>
                     <td>
-                        <input id="tel" type="text" value ="<?php echo isset($Order->name) ? $Order->tel : ""?>">
+                        <input id="tel" type="text" value ="<?php echo isset($order->name) ? $order->tel : ""?>">
                     </td>
                 </tr>
             </table>
@@ -47,24 +51,24 @@
                     <td>Mengen-Kategorie:</td>
                     <td>
                         <select id="category" name="category">
-                            <option value="0" <?php echo isset($Order->category) && $Order->category == 0 ? "selected=\"true\"" : ""?>>0-5kg</option>
-                            <option value="1" <?php echo isset($Order->category) && $Order->category == 1 ? "selected=\"true\"" : ""?>>5-10kg</option>
-                            <option value="2" <?php echo isset($Order->category) && $Order->category == 2 ? "selected=\"true\"" : ""?>>10-15kg</option>
-                            <option value="3" <?php echo isset($Order->category) && $Order->category == 3 ? "selected=\"true\"" : ""?>>15-20kg</option>
+                            <option value="0" <?php echo isset($order->category) && $order->category == 0 ? "selected=\"true\"" : ""?>>0-5kg</option>
+                            <option value="1" <?php echo isset($order->category) && $order->category == 1 ? "selected=\"true\"" : ""?>>5-10kg</option>
+                            <option value="2" <?php echo isset($order->category) && $order->category == 2 ? "selected=\"true\"" : ""?>>10-15kg</option>
+                            <option value="3" <?php echo isset($order->category) && $order->category == 3 ? "selected=\"true\"" : ""?>>15-20kg</option>
                         </select>
                     </td>
                 </tr>
                 <tr>
                     <td>Frucht:</td>
                     <td>
-                        <input id="fruit" type="text" value ="<?php echo isset($Order->category) ? $Order->GetFruitStringByID($Order->fruitID) : ""?>" required>
+                        <input id="fruit" type="text" value ="<?php echo isset($order->category) ? $order->GetFruitStringByID($order->fruitID) : ""?>" required>
                     </td>
                 </tr>
                 <tr>
                 <tr> 
                     <td>Dörr-Status:</td>
                     <td> 
-                        <input id="" type="checkbox" value="true" <?php if(isset($Order->isDried)) echo $Order->isDried ? "Checked=\"checked\"" : ""  ?>>
+                        <input id="" type="checkbox" value="true" <?php if(isset($order->isDried)) echo $order->isDried ? "Checked=\"checked\"" : ""  ?>>
                     </td>
                 </tr>
             </table>
@@ -72,7 +76,9 @@
         <a href="<?= $buttonAction ?>"><button id="submit" type="submit"><?= $name?></button></a>
         <input type="reset" value="Zurücksetzten"><br>
     </form>
-    <button>Zurück</button>
+    <a href="<?=$backButtonAction?>">
+        <button>Zurück</button>
+    </a>
 
     <script src="public/js/app.js"></script>
 </body>
