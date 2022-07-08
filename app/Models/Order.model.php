@@ -71,7 +71,7 @@
         }
 
         public function ListAll() {
-            $statement = $this->db->prepare('SELECT * FROM `orders` INNER JOIN `fruits` ON `orders`.`id` = `fruits`.`id`;');
+            $statement = $this->db->prepare('SELECT * FROM `orders`');
             $statement->execute();
             return $statement->fetchall();
         }
