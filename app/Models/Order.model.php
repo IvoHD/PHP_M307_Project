@@ -57,6 +57,12 @@
             return $statement->fetch();
         }
 
+        public function Edit (int $id, string $name, string $mail, string $tel, int $category, bool $isDried, int $elapsedDays, int $fruitID) {
+            $statement = $db->prepare('UPDATE `orders` SET `name` = `$name`, `email` = `$email`, `tel` = `$tel`, `category` = `$category`,`isdried` = `$isdried`,`elapseddays` = `$elapseddays`,`fruitid` = `$fruitid` WHERE `id` = $id');
+            $statement->execute();
+            return $statement->fetch();
+        }
+
         public function ListAll() {
             $statement = db()->prepare('SELECT * FROM `orders` INNER JOIN `fruits` ON `orders`.`id` = `fruits`.`id`;');
             $statement->execute();
